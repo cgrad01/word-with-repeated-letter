@@ -7,7 +7,7 @@ def run
   strings = parser.get_words(parser.normalize)
   words = Word.make_words(strings)
   words.sort!{|a,b| b.max_repeat <=> a.max_repeat}
-  puts words.first.string
+  p words.first.string
 end
 
 run
