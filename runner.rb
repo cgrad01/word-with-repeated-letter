@@ -1,3 +1,5 @@
+require_relative 'word'
+
 alpha = "abcdefghijklmnopqsrtuvwxyz"
 whitespace = " "
 
@@ -8,6 +10,16 @@ content = content.chars.select {|char| alpha.include?(char) || whitespace.includ
 
 content = content.join
 
-words = content.split(whitespace)
+strings = content.split(whitespace)
+words = []
+strings.each do |string|
+  words << Word.new(string: string)
+end
 
-puts words
+sorted = words.sort do |a, b|
+  b.max_repeat <=> a.max_repeat
+end
+
+sorted.each do |word|
+  puts word.string
+end

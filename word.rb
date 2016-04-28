@@ -1,6 +1,6 @@
 class Word
 
-  attr_reader :string, :repeat_amount
+  attr_reader :string, :repeat_amount, :max_repeat
   attr_accessor :letter_counts
 
   def initialize(args = {})
