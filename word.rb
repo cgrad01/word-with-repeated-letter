@@ -1,12 +1,13 @@
 class Word
 
-  attr_reader :string
+  attr_reader :string, :repeat_amount
   attr_accessor :count_hash
 
   def initialize(args = {})
     @string = args[:string]
     @count_hash = self.get_count_hash
     self.count_letters
+    @repeat_amount = self.get_max
   end
 
   def get_count_hash()
@@ -26,6 +27,10 @@ class Word
         end
       end
     end
+  end
+
+  def get_max()
+    self.count_hash.values.sort[-1]
   end
 
 end
