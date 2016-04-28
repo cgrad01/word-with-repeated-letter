@@ -5,8 +5,12 @@ class Parser
   $alpha = "abcdefghijklmnopqsrtuvwxyz"
   $whitespace = " "
 
-  def initialize(filename)
-    @filename = filename
+  def initialize()
+    @filename = self.get_filename
+  end
+
+  def get_filename()
+    $stdin.gets.chomp
   end
 
   def normalize()
