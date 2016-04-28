@@ -1,6 +1,6 @@
 class Word
 
-  attr_reader :string, :repeat_amount, :max_repeat
+  attr_reader :string, :max_repeat
   attr_accessor :letter_counts
 
   def initialize(args = {})
@@ -8,6 +8,12 @@ class Word
     @letter_counts = self.get_count_hash
     self.count_letters
     @max_repeat = self.get_max
+  end
+
+  def self.make_words(strings)
+    strings.each_with_object([]) do |string, array|
+      array << Word.new(string: string)
+    end
   end
 
   def get_count_hash()

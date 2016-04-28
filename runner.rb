@@ -1,25 +1,13 @@
 require_relative 'word'
+require_relative 'parser'
 
-alpha = "abcdefghijklmnopqsrtuvwxyz"
-whitespace = " "
-
-input = File.open("input.txt", "r")
-content = input.read.downcase!
-
-content = content.chars.select {|char| alpha.include?(char) || whitespace.include?(char)}
-
-content = content.join
-
-strings = content.split(whitespace)
-words = []
-strings.each do |string|
-  words << Word.new(string: string)
+def run
+  puts "After you have copied the input file into this folder, please input the name of the file (with extension) here:"
+  parser = Parser.new()
+  strings = parser.get_words(parser.normalize)
+  words = Word.make_words(strings)
+  words.sort!{|a,b| b.max_repeat <=> a.max_repeat}
+  p words.first.string
 end
 
-sorted = words.sort do |a, b|
-  b.max_repeat <=> a.max_repeat
-end
-
-sorted.each do |word|
-  puts word.string
-end
+run
