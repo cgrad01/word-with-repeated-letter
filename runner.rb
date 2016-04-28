@@ -1,7 +1,9 @@
 require_relative 'word'
 require_relative 'parser'
 
-parser = Parser.new('input.txt')
+puts "After you have copied the input file into this folder, please input the name of the file (with extension) here:"
+filename = $stdin.gets.chomp
+parser = Parser.new(filename)
 strings = parser.get_words(parser.normalize)
 
 words = Word.make_words(strings)
