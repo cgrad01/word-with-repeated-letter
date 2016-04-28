@@ -6,7 +6,7 @@ class Word
   def initialize(args = {})
     @string = args[:string]
     @letter_counts = self.get_count_hash
-    self.count_letters
+    self.count_each_letter
     @max_repeat = self.get_max
   end
 
@@ -17,23 +17,41 @@ class Word
   end
 
   def get_count_hash()
-    result = {}
+    count_hash = {}
     letters = self.string.split("").uniq
     letters.each do |letter|
-      result[letter] = 0
+      count_hash[letter] = 0
     end
-    return result
+    count_hash
   end
 
-  def count_letters()
-    self.letter_counts.each_key do |key|
-      self.string.chars.each do |char|
-        if key == char
-          self.letter_counts[key] +=1
-        end
+  def count_letter(word, letter)
+    count = 0
+    if word.include?(letter)
+      if word[0] == letter
+        count +=1
       end
+      count += count_letter(word[1..word.length], letter)
+    else
+      0
     end
   end
+
+  def count_each_letter()
+    self.letter_counts.each_key do |key|
+      self.letter_counts[key] = count_letter(self.string, key)
+    end
+  end
+
+  # def count_letters()
+
+  #     self.string.chars.each do |char|
+  #       if key == char
+  #         self.letter_counts[key] +=1
+  #       end
+  #     end
+  #   end
+  # end
 
   def get_max()
     self.letter_counts.values.sort[-1]
