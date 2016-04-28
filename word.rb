@@ -1,7 +1,7 @@
 class Word
 
   attr_reader :string, :repeat_amount
-  attr_accessor :count_hash
+  attr_accessor :letter_counts
 
   def initialize(args = {})
     @string = args[:string]
@@ -20,10 +20,10 @@ class Word
   end
 
   def count_letters()
-    self.count_hash.each_key do |key|
+    self.letter_counts.each_key do |key|
       self.string.chars.each do |char|
         if key == char
-          self.count_hash[key] +=1
+          self.letter_counts[key] +=1
         end
       end
     end
