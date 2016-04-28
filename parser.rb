@@ -20,4 +20,5 @@ class Parser
   def get_words(normalized_string)
     normalized_string.split($whitespace)
   end
+
 end
