@@ -43,16 +43,6 @@ class Word
     end
   end
 
-  # def count_letters()
-
-  #     self.string.chars.each do |char|
-  #       if key == char
-  #         self.letter_counts[key] +=1
-  #       end
-  #     end
-  #   end
-  # end
-
   def get_max()
     self.letter_counts.values.sort[-1]
   end
