@@ -5,9 +5,9 @@ class Word
 
   def initialize(args = {})
     @string = args[:string]
-    @count_hash = self.get_count_hash
+    @letter_counts = self.get_count_hash
     self.count_letters
-    @repeat_amount = self.get_max
+    @max_repeat = self.get_max
   end
 
   def get_count_hash()
@@ -30,7 +30,7 @@ class Word
   end
 
   def get_max()
-    self.count_hash.values.sort[-1]
+    self.letter_counts.values.sort[-1]
   end
 
 end
