@@ -1,17 +1,11 @@
 require_relative 'word'
+require_relative 'parser'
 
-alpha = "abcdefghijklmnopqsrtuvwxyz"
-whitespace = " "
+parser = Parser.new('input.txt')
+strings = parser.get_words(parser.normalize)
 
-input = File.open("input.txt", "r")
-content = input.read.downcase!
-
-content = content.chars.select {|char| alpha.include?(char) || whitespace.include?(char)}
-
-content = content.join
-
-strings = content.split(whitespace)
 words = []
+
 strings.each do |string|
   words << Word.new(string: string)
 end
@@ -20,6 +14,4 @@ sorted = words.sort do |a, b|
   b.max_repeat <=> a.max_repeat
 end
 
-sorted.each do |word|
-  puts word.string
-end
+puts sorted.first.string
