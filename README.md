@@ -1,6 +1,6 @@
 # word-with-repeated-letter
 
-In this challenge, I was asked to write a function, that takes a file input, and outputs the word in that file that contains the highest number of any single repeated letter (in the case of a tie, return the first occurring word in the original file)
+In this challenge, I was asked to write a function that takes a text file input, and outputs the word in that file that contains the most repeats of a single letter (in the case of a tie, return the first occurring word in the original file). I assume that the file would contain a-z (upper and lower), whitespace, and punctuation. I also assume that a letter is the same letter regardless of case.
 
 In order to run this program:
 
