@@ -2,11 +2,15 @@ class Parser
 
   attr_reader :filename
 
-  $alpha = "abcdefghijklmnopqsrtuvwxyz"
+  $alpha = "abcdefghijklmnopqrstuvwxyz"
   $whitespace = " "
 
-  def initialize()
-    @filename = self.get_filename
+  def initialize(args = {})
+    if args[:filename]
+      @filename = args[:filename]
+    else
+      @filename = self.get_filename
+    end
   end
 
   def get_filename()
@@ -16,7 +20,8 @@ class Parser
   def normalize()
     input = File.open(self.filename, "r")
     downcased = input.read.downcase
-    letters_and_whitespace = downcased.chars.select do |char| $alpha.include?(char) || $whitespace.include?(char)
+    letters_and_whitespace = downcased.chars.select do |char|
+      $alpha.include?(char) || $whitespace.include?(char)
     end
     letters_and_whitespace.join
   end
