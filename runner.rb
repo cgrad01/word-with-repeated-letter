@@ -10,9 +10,6 @@ def run
   Word.get_max_repeater(words)
 end
 
-
-
-
 p run
 ask_about_tests
 
