@@ -2,11 +2,15 @@ class Parser
 
   attr_reader :filename
 
-  $alpha = "abcdefghijklmnopqsrtuvwxyz"
+  $alpha = "abcdefghijklmnopqrstuvwxyz"
   $whitespace = " "
 
-  def initialize()
-    @filename = self.get_filename
+  def initialize(args = {})
+    if args[:filename]
+      @filename = args[:filename]
+    else
+      @filename = self.get_filename
+    end
   end
 
   def get_filename()

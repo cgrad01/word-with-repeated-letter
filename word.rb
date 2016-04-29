@@ -16,6 +16,11 @@ class Word
     end
   end
 
+  def self.get_max_repeater(words)
+    words.sort!{|a,b| b.max_repeat <=> a.max_repeat}
+    words.first.string
+  end
+
   def get_count_hash()
     count_hash = {}
     letters = self.string.split("").uniq
