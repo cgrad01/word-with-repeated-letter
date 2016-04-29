@@ -9,4 +9,6 @@ In order to run this program:
   3. In the command line, enter "ruby runner.rb"
   4. Follow the instructions.
 
+  ** Please note, in order to add a new input file, please copy that file into this folder first **
+
 Thanks!
