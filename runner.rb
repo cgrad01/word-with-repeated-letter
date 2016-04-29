@@ -12,4 +12,3 @@ end
 
 p run
 ask_about_tests
-
